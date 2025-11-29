@@ -3,8 +3,8 @@ import { FaWind, FaTemperatureHigh, FaCloud, FaEye, FaTint, FaSun, FaThermometer
 import { WiHumidity, WiBarometer, WiDaySunny, WiWindDeg } from "react-icons/wi";
 import { GridItem } from './GridItem';
 import { getWindDirection } from '../../utils/weather.js'
-
 export function WeatherCurrent({ weatherData }) {
+
   if (!weatherData || !weatherData.location) {
     return (
       <div className="w-full h-screen flex items-center justify-center bg-gray-900 text-white">

@@ -23,7 +23,7 @@ function App() {
     setIsOpenSideBar(isOpenSideBar => !isOpenSideBar);
   }, [])
   const fetchDataWeather = async (countryName) => {
-    const baseURL = 'http://api.weatherapi.com/v1';
+    const baseURL = 'https://api.weatherapi.com/v1';
     const API_KEY = import.meta.env.VITE_API_WEATHER_KEY;
 
     try {
@@ -46,6 +46,7 @@ function App() {
     fetchDataWeather("VietNam");
     fetchCountryAPI()
   }, [])
+  console.log(weatherData)
   return (
     <div className = "font-Montserrat">
       <Header
