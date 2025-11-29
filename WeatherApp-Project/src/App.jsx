@@ -37,7 +37,7 @@ function App() {
   const fetchCountryAPI = async () => {
     try {
       const response = await axios.get('https://restcountries.com/v3.1/all?fields=name,flags');
-      setCountries(response.data);
+      setCountries(response.data)
     } catch (error) {
       console.error("Lỗi khi fetch quốc gia:", error);
     }
@@ -48,7 +48,7 @@ function App() {
   }, [])
   console.log(weatherData)
   return (
-    <div className = "font-Montserrat">
+    <div className="font-Montserrat">
       <Header
         handleOpenSideBar={handleOpenSideBar}
       ></Header>
@@ -60,7 +60,11 @@ function App() {
         filteredCountries={filteredCountries}
         searchQuery={searchQuery}
       ></SideBar >
-      <WeatherCurrent weatherData={weatherData}></WeatherCurrent>
+      <WeatherCurrent
+        handleOpenSideBar={handleOpenSideBar}
+        weatherData={weatherData}
+        isOpenSideBar = {isOpenSideBar}
+      ></WeatherCurrent>
     </div>
   )
 }

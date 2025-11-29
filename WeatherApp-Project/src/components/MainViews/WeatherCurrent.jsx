@@ -3,7 +3,7 @@ import { FaWind, FaTemperatureHigh, FaCloud, FaEye, FaTint, FaSun, FaThermometer
 import { WiHumidity, WiBarometer, WiDaySunny, WiWindDeg } from "react-icons/wi";
 import { GridItem } from './GridItem';
 import { getWindDirection } from '../../utils/weather.js'
-export function WeatherCurrent({ weatherData }) {
+export function WeatherCurrent({ handleOpenSideBar, weatherData, isOpenSideBar }) {
 
   if (!weatherData || !weatherData.location) {
     return (
@@ -15,16 +15,22 @@ export function WeatherCurrent({ weatherData }) {
 
   return (
     <>
-      <div key={weatherData.location.tz_id} className="w-full h-screen relative ">
+      <div key={weatherData.location.tz_id} className="w-screen h-screen relative ">
         <div
           style={{
             backgroundImage: `url(${VinhHaLong})`
           }}
           className="h-screen w-screen bg-cover fixed"></div>
 
-        <div className="w-full h-screen absolute bg-black/30"></div>
-
-        <div className="flex flex-col gap-5 absolute top-[12%] w-full h-full overflow-y-auto pb-20">
+        <div
+          className={`w-screen z-40 h-screen absolute bg-black/50
+          `}></div>
+        <div
+          onClick={() => handleOpenSideBar()}
+          className={`fixed top-0 bottom-0 left-0 right-0  z-60 h-screen bg-black/50
+          ${isOpenSideBar ? "opacity-100 transition-all duration-1000" : "opacity-0 transition-all duration-1000 "}
+          `}></div>
+        <div className="z-50 flex flex-col gap-5 absolute top-[12%] w-full h-full overflow-y-auto pb-20">
           <div className="z-10 flex flex-col gap-2">
             <p className="text-5xl w-full text-center text-white">{weatherData.location.country}</p>
             <p className="text-lg w-full text-center text-gray-300 font-medium">{weatherData.location.localtime}</p>
@@ -108,7 +114,7 @@ export function WeatherCurrent({ weatherData }) {
               <GridItem
                 icon={<WiBarometer />}
                 title="Áp suất"
-                detail={`${weatherData.current.pressure_mb} mb`}
+                detail={`${weatherData.current.pressure_mb} Pa`}
                 description={
                   weatherData.current.pressure_mb > 1020 ? "Áp suất cao" :
                     weatherData.current.pressure_mb < 1000 ? "Áp suất thấp" :
