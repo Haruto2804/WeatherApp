@@ -28,7 +28,7 @@ export function WeatherCurrent({ handleOpenSideBar, weatherData, isOpenSideBar }
         <div
           onClick={() => handleOpenSideBar()}
           className={`fixed top-0 bottom-0 left-0 right-0  z-60 h-screen bg-black/50
-          ${isOpenSideBar ? "opacity-100 transition-all duration-1000" : "opacity-0 transition-all duration-1000 "}
+          ${isOpenSideBar ? "opacity-100 pointer-events-none transition-all duration-1000" : "opacity-0 pointer-events-none transition-all duration-1000 "}
           `}></div>
         <div className="z-50 flex flex-col gap-5 absolute top-[12%] w-full h-full overflow-y-auto pb-20">
           <div className="z-10 flex flex-col gap-2">

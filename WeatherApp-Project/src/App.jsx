@@ -48,6 +48,8 @@ function App() {
   }, [])
   console.log(weatherData)
   return (
+
+
     <div className="font-Montserrat">
       <Header
         handleOpenSideBar={handleOpenSideBar}
@@ -63,9 +65,10 @@ function App() {
       <WeatherCurrent
         handleOpenSideBar={handleOpenSideBar}
         weatherData={weatherData}
-        isOpenSideBar = {isOpenSideBar}
+        isOpenSideBar={isOpenSideBar}
       ></WeatherCurrent>
     </div>
+
   )
 }
 
