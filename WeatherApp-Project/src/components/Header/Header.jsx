@@ -3,7 +3,7 @@ import { CiMenuBurger } from "react-icons/ci";
 export function Header({handleOpenSideBar}) {
   return (
     <>
-      <header className="fixed z-20
+      <header className="fixed z-1000
       top-0 left-0 right-0 bg-slate-900 p-4 text-white flex justify-between">
         <CiMenuBurger 
         onClick={()=> handleOpenSideBar()}

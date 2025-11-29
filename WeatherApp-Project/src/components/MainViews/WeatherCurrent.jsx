@@ -13,11 +13,9 @@ export function WeatherCurrent({ weatherData }) {
     );
   }
 
-  console.log('wedata', weatherData)
-
   return (
     <>
-      <div key={weatherData.location.tz_id} className="w-full h-screen relative">
+      <div key={weatherData.location.tz_id} className="w-full h-screen relative ">
         <div
           style={{
             backgroundImage: `url(${VinhHaLong})`
@@ -60,13 +58,7 @@ export function WeatherCurrent({ weatherData }) {
                 }>
               </GridItem>
 
-              {/* Cảm giác như */}
-              <GridItem
-                icon={<FaThermometerHalf />}
-                title="Cảm giác như"
-                detail={`${weatherData.current.feelslike_c} °C`}
-                description={`Nhiệt độ cơ thể cảm nhận được`}>
-              </GridItem>
+
 
               {/* Gió */}
               <GridItem
@@ -79,7 +71,7 @@ export function WeatherCurrent({ weatherData }) {
               {/* Giật gió */}
               <GridItem
                 icon={<FaWind />}
-                title="Giật gió"
+                title="Gió giật"
                 detail={`${weatherData.current.gust_kph} km/h`}
                 description={
                   weatherData.current.gust_kph > 60 ? "Giật gió mạnh" :
@@ -176,7 +168,7 @@ export function WeatherCurrent({ weatherData }) {
               {/* Wind Chill - Cảm giác lạnh do gió */}
               <GridItem
                 icon={<FaWind />}
-                title="Wind Chill"
+                title="Chỉ số phong hàn"
                 detail={`${weatherData.current.windchill_c} °C`}
                 description={`Nhiệt độ cảm nhận do gió`}>
               </GridItem>

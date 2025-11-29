@@ -10,16 +10,14 @@ import ChinaFlag from '../../../public/image/flag_country/ChinaFlag.png'
 import AUSFlag from '../../../public/image/flag_country/AUSFlag.png'
 import USFlag from '../../../public/image/flag_country/USFlag.png'
 import CanadaFlag from '../../../public/image/flag_country/CanadaFlag.png'
-export function SideBar({ fetchDataWeather, isOpenSideBar, handleOpenSideBar }) {
-  const countries = [
-    { name: "Việt Nam", flag: VietNamFlag, currentTemp: "25C", condition: "Mây rải rác", query: "VietNam" },
-    { name: "Canada", flag: CanadaFlag, currentTemp: "25C", condition: "Mây rải rác", query: "Canada" },
-    { name: "Japan", flag: JapanFlag, currentTemp: "20C", condition: "Tuyết rơi", query: "Japan" },
-  ];
+export function SideBar({ fetchDataWeather, handleSearchChange, filteredCountries, searchQuery, isOpenSideBar, handleOpenSideBar }) {
+
   return (
-    <>
+    <>  
       <div className={`
-        z-30
+        overflow-y-auto 
+
+        z-1200
         flex 
         flex-col 
         w-1/2 
@@ -31,7 +29,7 @@ export function SideBar({ fetchDataWeather, isOpenSideBar, handleOpenSideBar }) 
         bottom-0
         p-2
         lg:w-[250px]
-        ${isOpenSideBar ? "translate-x-0 transition-transform duration-500 ease-in" : "-translate-x-300 transition-transform duration-500 "}
+        ${isOpenSideBar ? "translate-x-0 transition-transform duration-1000 ease-in-out opacity-100" : " -translate-x-300 transition-transform duration-1000 ease-in-out"}
         `}>
         <div
           onClick={() => handleOpenSideBar()}
@@ -45,6 +43,9 @@ export function SideBar({ fetchDataWeather, isOpenSideBar, handleOpenSideBar }) 
         </div>
         <div className="relative">
           <input
+            value={searchQuery}
+            onChange={handleSearchChange}
+
             className="text-gray-400 font-medium w-full h-full py-2 pl-9
         bg-white/20 rounded-sm
         "
@@ -53,14 +54,14 @@ export function SideBar({ fetchDataWeather, isOpenSideBar, handleOpenSideBar }) 
             className="text-gray-500 size-6 absolute top-2 left-1"></IoMdSearch>
         </div>
 
-        {countries.map(item => {
+        {filteredCountries.map(item => {
           return (
-            <CountryItem name={item.name}
-              flag={item.flag}
+            <CountryItem key={item.name.common} name={item.name.common}
+              flag={item.flags.svg}
               currentTemp={item.currentTemp}
               condition={item.condition}
               fetchDataWeather={fetchDataWeather}
-              query={item.query}
+              query={item.name.common}
             ></CountryItem>
           )
 
