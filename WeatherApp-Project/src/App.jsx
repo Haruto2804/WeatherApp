@@ -4,6 +4,7 @@ import { SideBar } from './components/Sidebar/SideBar'
 import { Header } from './components/Header/Header'
 import { useCallback, useEffect, useState, useMemo } from 'react';
 import { WeatherCurrent } from './components/MainViews/WeatherCurrent';
+import { motion } from 'motion/react';
 import axios from 'axios'
 function App() {
   const [isOpenSideBar, setIsOpenSideBar] = useState(false);
