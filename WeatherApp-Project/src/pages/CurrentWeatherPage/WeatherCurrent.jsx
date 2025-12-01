@@ -1,16 +1,13 @@
 import VinhHaLong from '../../../public/image/background_county/VinhHaLong.png'
 import { FaWind, FaTemperatureHigh, FaCloud, FaEye, FaTint, FaSun, FaThermometerHalf, FaCompressArrowsAlt } from "react-icons/fa";
 import { WiHumidity, WiBarometer, WiDaySunny, WiWindDeg } from "react-icons/wi";
-import { GridItem } from './GridItem';
+import { GridItem } from '../../components/Sidebar/GridItem.jsx';
 import { getWindDirection } from '../../utils/weather.js'
 export function WeatherCurrent({ handleOpenSideBar, weatherData, isOpenSideBar }) {
+  console.log('render weather current')
 
-  if (!weatherData || !weatherData.location) {
-    return (
-      <div className="w-full h-screen flex items-center justify-center bg-gray-900 text-white">
-        <p className="text-xl animate-pulse">Đang tải dữ liệu thời tiết...</p>
-      </div>
-    );
+  if (!weatherData || !weatherData.location || !weatherData.current) {
+    return null;
   }
 
   return (

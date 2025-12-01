@@ -3,17 +3,22 @@ import './App.css'
 import { SideBar } from './components/Sidebar/SideBar'
 import { Header } from './components/Header/Header'
 import { useCallback, useEffect, useState, useMemo } from 'react';
-import { WeatherCurrent } from './components/MainViews/WeatherCurrent';
-import { motion } from 'motion/react';
+import { WeatherCurrent } from './pages/CurrentWeatherPage/WeatherCurrent';
+import { Routes, Route } from 'react-router';
 import axios from 'axios'
+import { Wishes } from './pages/WishesPage/Wishes';
+import { HomePage } from './pages/HomePagePage/HomePage';
+import { ForeCast } from './pages/ForeCastPage/ForeCast';
+import { NotFound } from './pages/NotFoundPage';
+import { AboutUs } from './pages/AboutUsPage/AboutUs'
 function App() {
   const [isOpenSideBar, setIsOpenSideBar] = useState(false);
   const [weatherData, setWeatherData] = useState({});
   const [countries, setCountries] = useState([]);
-  const [searchQuery, setSearchQuerry] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearchChange = (e) => {
-    setSearchQuerry(e.target.value);
+    setSearchQuery(e.target.value);
   }
   const filteredCountries = useMemo(() => {
     return countries.filter((country) =>
@@ -47,7 +52,13 @@ function App() {
     fetchDataWeather("VietNam");
     fetchCountryAPI()
   }, [])
-  console.log(weatherData)
+  if (!weatherData || !weatherData.location) {
+    return (
+      <div className="w-full h-screen flex items-center justify-center bg-gray-900 text-white">
+        <p className="text-xl animate-pulse">Đang tải dữ liệu thời tiết...</p>
+      </div>
+    );
+  }
   return (
 
 
@@ -63,10 +74,19 @@ function App() {
         filteredCountries={filteredCountries}
         searchQuery={searchQuery}
       ></SideBar >
+
+
+      <Routes>
+        <Route path="." element={<HomePage />}></Route>
+        <Route path="/current" element={<WeatherCurrent handleOpenSideBar={handleOpenSideBar} weatherData={weatherData} isOpenSideBar={isOpenSideBar} />} />
+        <Route path="/wishes" element={<Wishes />}></Route>
+        <Route path="/wishes" element={<AboutUs />}></Route>
+        <Route path="/forecast" element={<ForeCast />}></Route>
+        <Route path="/about" element={<AboutUs />}></Route>
+        <Route path="/*" element={<NotFound />}></Route>
+      </Routes>
       <WeatherCurrent
-        handleOpenSideBar={handleOpenSideBar}
-        weatherData={weatherData}
-        isOpenSideBar={isOpenSideBar}
+
       ></WeatherCurrent>
     </div>
 
