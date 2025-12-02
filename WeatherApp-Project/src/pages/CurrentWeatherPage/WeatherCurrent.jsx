@@ -5,7 +5,7 @@ import { GridItem } from '../../components/Sidebar/GridItem.jsx';
 import { getWindDirection } from '../../utils/weather.js'
 export function WeatherCurrent({ handleOpenSideBar, weatherData, isOpenSideBar }) {
   console.log('render weather current')
-
+  console.log(weatherData)
   if (!weatherData || !weatherData.location || !weatherData.current) {
     return null;
   }

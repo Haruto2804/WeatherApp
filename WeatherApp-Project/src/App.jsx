@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 
 import './App.css'
 import { SideBar } from './components/Sidebar/SideBar'
@@ -52,13 +53,6 @@ function App() {
     fetchDataWeather("VietNam");
     fetchCountryAPI()
   }, [])
-  if (!weatherData) {
-    return (
-      <div className="w-full h-screen flex items-center justify-center bg-gray-900 text-white">
-        <p className="text-xl animate-pulse">Đang tải dữ liệu thời tiết...</p>
-      </div>
-    );
-  }
   return (
 
 
@@ -80,14 +74,10 @@ function App() {
         <Route path="." element={<HomePage />}></Route>
         <Route path="/current" element={<WeatherCurrent handleOpenSideBar={handleOpenSideBar} weatherData={weatherData} isOpenSideBar={isOpenSideBar} />} />
         <Route path="/wishes" element={<Wishes />}></Route>
-        <Route path="/wishes" element={<AboutUs />}></Route>
         <Route path="/forecast" element={<ForeCast />}></Route>
         <Route path="/about" element={<AboutUs />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
       </Routes>
-      <WeatherCurrent
-
-      ></WeatherCurrent>
     </div>
 
   )
