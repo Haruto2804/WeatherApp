@@ -8,7 +8,6 @@ export function CTA({title, description, ctaTextButton}) {
           <p className="text-3xl font-bold text-center">{title}</p>
           <p>{description}</p>
           <Link to = "/current" className = "flex items-center justify-center w-2/3 rounded-xl bg-white font-bold text-blue-500 p-4 hover:-translate-y-3 cursor-pointer transition-all duration-500 ease-in-out">{ctaTextButton}</Link>
-
       </div>
     </>
   )

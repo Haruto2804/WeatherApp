@@ -52,7 +52,7 @@ function App() {
     fetchDataWeather("VietNam");
     fetchCountryAPI()
   }, [])
-  if (!weatherData || !weatherData.location) {
+  if (!weatherData) {
     return (
       <div className="w-full h-screen flex items-center justify-center bg-gray-900 text-white">
         <p className="text-xl animate-pulse">Đang tải dữ liệu thời tiết...</p>
