@@ -71,7 +71,7 @@ function App() {
 
 
       <Routes>
-        <Route path="." element={<HomePage />}></Route>
+        <Route path="/" element={<HomePage />}></Route>
         <Route path="/current" element={<WeatherCurrent handleOpenSideBar={handleOpenSideBar} weatherData={weatherData} isOpenSideBar={isOpenSideBar} />} />
         <Route path="/wishes" element={<Wishes />}></Route>
         <Route path="/forecast" element={<ForeCast />}></Route>
