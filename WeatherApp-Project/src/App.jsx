@@ -17,7 +17,7 @@ function App() {
   const [weatherData, setWeatherData] = useState({});
   const [countries, setCountries] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
-
+  const [isLoading,setIsLoading] = useState(false);
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   }
@@ -34,11 +34,12 @@ function App() {
     const API_KEY = import.meta.env.VITE_API_WEATHER_KEY;
 
     try {
-      const response = await axios.get(`${baseURL}/current.json?q=${countryName}&key=${API_KEY}&lang=vi`);
+      const response = await axios.get(`${baseURL}/forecast.json?q=${countryName}&key=${API_KEY}&lang=vi`);
       setWeatherData(response.data);
     } catch (error) {
       console.error("Lỗi khi fetch thời tiết:", error);
-
+    }finally {
+      setIsLoading(true);
     }
   };
   const fetchCountryAPI = async () => {
@@ -53,6 +54,17 @@ function App() {
     fetchDataWeather("VietNam");
     fetchCountryAPI()
   }, [])
+
+  console.log(weatherData)
+
+  if(!isLoading) {
+    return (
+      <>
+        <p>Dang tai du lieu!</p>
+      </>
+    )
+  }
+
   return (
 
 
@@ -69,9 +81,8 @@ function App() {
         searchQuery={searchQuery}
       ></SideBar >
 
-
       <Routes>
-        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/" element={<HomePage weatherData = {weatherData} />}></Route>
         <Route path="/current" element={<WeatherCurrent handleOpenSideBar={handleOpenSideBar} weatherData={weatherData} isOpenSideBar={isOpenSideBar} />} />
         <Route path="/wishes" element={<Wishes />}></Route>
         <Route path="/forecast" element={<ForeCast />}></Route>

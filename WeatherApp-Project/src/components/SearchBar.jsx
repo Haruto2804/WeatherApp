@@ -6,7 +6,7 @@ export function SearchBar () {
               focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none
               transition duration-200 ease-in-out placeholder-blue-300
                bg-slate-900 hidden
-               sm:block
+               sm:block font-bold
                "
       />
     </div>
