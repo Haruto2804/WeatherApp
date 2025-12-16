@@ -17,7 +17,7 @@ function App() {
   const [weatherData, setWeatherData] = useState({});
   const [countries, setCountries] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [isLoading,setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   }
@@ -38,7 +38,7 @@ function App() {
       setWeatherData(response.data);
     } catch (error) {
       console.error("Lỗi khi fetch thời tiết:", error);
-    }finally {
+    } finally {
       setIsLoading(true);
     }
   };
@@ -55,16 +55,14 @@ function App() {
     fetchCountryAPI()
   }, [])
 
-  console.log(weatherData)
-
-  if(!isLoading) {
+  if (!isLoading) {
     return (
       <>
         <p>Dang tai du lieu!</p>
       </>
     )
   }
-
+  console.log(countries);
   return (
 
 
@@ -82,7 +80,7 @@ function App() {
       ></SideBar >
 
       <Routes>
-        <Route path="/" element={<HomePage weatherData = {weatherData} />}></Route>
+        <Route path="/" element={<HomePage fetchDataWeather={fetchDataWeather} weatherData={weatherData} filteredCountries={filteredCountries} handleSearchChange={handleSearchChange} />}></Route>
         <Route path="/current" element={<WeatherCurrent handleOpenSideBar={handleOpenSideBar} weatherData={weatherData} isOpenSideBar={isOpenSideBar} />} />
         <Route path="/wishes" element={<Wishes />}></Route>
         <Route path="/forecast" element={<ForeCast />}></Route>

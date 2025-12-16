@@ -2,9 +2,19 @@ import { SearchBar } from "../../components/SearchBar";
 import { IoIosSend, IoMdMoon, IoMdSunny } from "react-icons/io";
 import { FaWind } from "react-icons/fa";
 import { ForeCastToday } from "./ForeCastToday";
-export function CurrentWeatherLocation({ weatherData }) {
+import { useState } from "react";
+export function CurrentWeatherLocation({ fetchDataWeather, weatherData, filteredCountries, handleSearchChange }) {
+  const [isFocused, setIsFocused] = useState(false);
   const maxtemp_c = weatherData.forecast.forecastday[0].day.maxtemp_c;
   const mintemp_c = weatherData.forecast.forecastday[0].day.mintemp_c;
+  const handleFocus = () => {
+    setIsFocused(true);
+  }
+  const handleBlur = () => {
+    setTimeout(() => {
+      setIsFocused(false);
+    }, 150);
+  }
   return (
     <>
       <div className="flex justify-evenly mt-16 bg-gray-900 mx-5
@@ -14,11 +24,29 @@ export function CurrentWeatherLocation({ weatherData }) {
         md:p-10
         ">
         <div className="w-full flex  flex-col gap-5 ml-7 basis-1/2">
-          <SearchBar />
+          <div className="relative ">
+            <SearchBar handleFocus={handleFocus} handleBlur={handleBlur} handleSearchChange={handleSearchChange} />
+            <div className={`absolute top-15 bg-slate-800 
+              w-full h-80 p-4 bottom z-100 rounded-lg text-white 
+              font-bold overflow-y-auto flex flex-col gap-5
+              ${isFocused ? "block" : "hidden"}
+              `}>
+              {filteredCountries.map((item) => (
+                <div
+                  onClick={() => fetchDataWeather(item.name.common)}
+                  key={item.name.common} className="flex gap-5 items-center hover:bg-blue-700 p-2 rounded-xl cursor-pointer transition-all">
+                  <img className="w-15" src={item.flags.png} alt="" />
+                  <p>{item.name.common}</p>
+                </div>
+              ))}
+
+            </div>
+          </div>
+
           <div className="  bg-blue-500/40 w-full rounded-full flex justify-center">
             <div className="rounded-full font-bold relative flex items-center gap-3 bg-blue-00 p-2 select-none">
               <IoIosSend className="size-7 text-blue-400" />
-              <p className="text-blue-400 text-xs w-full">Current Location</p>
+              <p className="text-blue-400 text-lg w-full">Current Location</p>
             </div>
 
           </div>
@@ -45,19 +73,18 @@ export function CurrentWeatherLocation({ weatherData }) {
               <IoMdMoon className="size-45 text-gray-500 " />
             )}
           </div>
-          <div class="flex items-center gap-8 text-white/80 mt-7">
-            <div class="flex flex-col items-end">
-              <span class="text-sm uppercase tracking-wider text-white/50">High</span>
-              <span class="text-2xl font-bold">{maxtemp_c}°</span>
+          <div className="flex items-center gap-8 text-white/80 mt-7">
+            <div className="flex flex-col items-end">
+              <span className="text-sm uppercase tracking-wider text-white/50">High</span>
+              <span className="text-2xl font-bold">{maxtemp_c}°</span>
             </div>
-            <div class="w-px h-8 bg-white/20"></div>
-            <div class="flex flex-col items-end">
-              <span class="text-sm uppercase tracking-wider text-white/50">Low</span>
-              <span class="text-2xl font-bold">{mintemp_c}°</span>
+            <div className="w-px h-8 bg-white/20"></div>
+            <div className="flex flex-col items-end">
+              <span className="text-sm uppercase tracking-wider text-white/50">Low</span>
+              <span className="text-2xl font-bold">{mintemp_c}°</span>
             </div>
           </div>
         </div>
-
       </div>
 
     </>

@@ -1,7 +1,11 @@
-export function SearchBar () {
+export function SearchBar ({handleBlur, handleFocus,handleSearchChange}) {
   return (
     <div className = "relative w-full">
-      <input type="text" placeholder="Search Weather's Country"
+      <input 
+      onChange= {(e)=> handleSearchChange(e)}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      type="text" placeholder="Search Weather's Country"
       className ="p-4 w-full text-blue-500  border-blue-400 rounded-lg 
               focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none
               transition duration-200 ease-in-out placeholder-blue-300
