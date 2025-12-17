@@ -7,9 +7,7 @@ import { useCallback, useEffect, useState, useMemo } from 'react';
 import { WeatherCurrent } from './pages/CurrentWeatherPage/WeatherCurrent';
 import { Routes, Route } from 'react-router';
 import axios from 'axios'
-import { Wishes } from './pages/WishesPage/Wishes';
 import { HomePage } from './pages/HomePagePage/HomePage';
-import { ForeCast } from './pages/ForeCastPage/ForeCast';
 import { NotFound } from './pages/NotFoundPage';
 import { AboutUs } from './pages/AboutUsPage/AboutUs'
 function App() {
@@ -62,7 +60,6 @@ function App() {
       </>
     )
   }
-  console.log(countries);
   return (
 
 
