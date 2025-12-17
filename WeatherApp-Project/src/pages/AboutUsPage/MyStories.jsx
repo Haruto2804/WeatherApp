@@ -38,7 +38,7 @@ export function MyStories() {
       lg:flex-row
       py-20
        ">
-      <div className="flex flex-col">
+      <div className="flex flex-col basis-2/3">
         <p className="text-3xl font-bold text-white mb-5">Câu chuyện của chúng tôi</p>
         <div className="text-gray-400 mb-10">
           Từ một ý tưởng nhỏ bé đến một ứng dụng phục vụ hàng triệu người,
@@ -59,9 +59,10 @@ export function MyStories() {
           ))}
         </div>
       </div>
-      <video controls width= "700" className = "self-center lg:ml-10 rounded-xl">
-        <source src="../public/videos/weather-marketing.mp4"></source>
-      </video>
+      <div className="w-full">
+        <iframe className="aspect-video" src="https://www.youtube.com/embed/KDOoyeN2Rho?si=aN9GkvuIU_oPO04U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+
     </div>
   )
 }

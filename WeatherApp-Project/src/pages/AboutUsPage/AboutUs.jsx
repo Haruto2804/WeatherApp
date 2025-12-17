@@ -18,7 +18,7 @@ export function AboutUs() {
             Khám phá câu chuyện, đội ngũ và công nghệ
             tiên tiến đằng sau ứng dụng thời tiết mà bạn tin tưởng.
           </p>
-          <Link to = "/current" className="bg-blue-500 font-bold text-sm w-1/2 text-white p-4 cursor-pointer hover:-translate-y-3 ease-in-out duration-500 rounded-sm lg:w-1/5 lg:h-[70px] flex items-center justify-center">Trải nghiệm Haruto Weather</Link>
+          <Link to="/current" className="bg-blue-500 font-bold text-sm w-1/2 text-white p-4 cursor-pointer hover:-translate-y-3 ease-in-out duration-500 rounded-sm lg:w-1/5 lg:h-[70px] flex items-center justify-center">Trải nghiệm Haruto Weather</Link>
         </div>
       </div>
       <div className="bg-black/40 py-10">
@@ -63,16 +63,15 @@ export function AboutUs() {
 
       <MyStories></MyStories>
       <div className="about-me bg-black/40 py-20 px-4">
-        <div className="flex-col flex mx-auto max-w-6xl gap-20 justify-center">
-          <div className = "flex flex-col items-center">
-            <p className="text-4xl text-white font-bold text-center mb-15">About me</p>
+        <div className="flex-col flex mx-auto max-w-6xl justify-center">
+          <div className="flex flex-col items-center">
+            <p className="text-4xl text-white font-bold text-center mb-3">About me</p>
             <p className="w-5/6">
-              Tôi là một nhà phát triển website tiềm năng,
-              tôi tin rằng công nghệ phải phục vụ người dùng.
-              Tôi luôn tìm cách sử dụng kỹ năng lập trình để
-              giải quyết các vấn đề thực tế và tạo ra các tính
-              năng mang lại giá trị rõ ràng, giúp cải thiện hành
-              trình của người dùng trên website.</p>
+              "Tôi là một nhà phát triển website với niềm tin mãnh liệt rằng: Công nghệ chỉ thực sự có giá trị khi nó phục vụ con người. Với tôi, lập trình không đơn thuần là việc kết nối các dòng mã hay xây dựng những giao diện bắt mắt; đó là quá trình thấu hiểu những rào cản thực tế và dùng kỹ thuật để xóa bỏ chúng.
+
+              Trong mỗi dự án, tôi luôn đặt mình vào vị trí của người dùng cuối để tự hỏi: 'Tính năng này có thực sự cần thiết không?' hay 'Làm thế nào để hành trình của họ trở nên mượt mà và trực quan hơn?'. Tôi không chỉ tập trung vào việc 'chạy được', mà còn chú trọng vào việc 'chạy hiệu quả'. Điều này đồng nghĩa với việc tối ưu hóa tốc độ tải trang để không ai phải chờ đợi, thiết kế giao diện đáp ứng (Responsive) để mang lại trải nghiệm đồng nhất trên mọi thiết bị, và xây dựng những tính năng mang lại giá trị thực tiễn rõ ràng.
+
+              Tư duy của tôi là sự giao thoa giữa logic lập trình và sự thấu cảm với khách hàng. Tôi không ngừng tìm kiếm những cách tiếp cận sáng tạo để giải quyết các bài toán phức tạp, biến những quy trình rắc rối thành những trải nghiệm đơn giản, tinh tế. Mục tiêu cuối cùng của tôi là tạo ra những sản phẩm kỹ thuật số không chỉ hoạt động hoàn hảo về mặt kỹ thuật, mà còn phải trở thành một trợ thủ đắc lực, góp phần nâng cao chất lượng cuộc sống và công việc của người dùng."</p>
           </div>
           <div className="flex-col flex items-center   ">
             <div className=" rounded-full border-6 border-yellow-400 size-50 mt-5">

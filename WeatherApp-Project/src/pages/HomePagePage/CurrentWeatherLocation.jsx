@@ -46,7 +46,7 @@ export function CurrentWeatherLocation({ fetchDataWeather, weatherData, filtered
           <div className="  bg-blue-500/40 w-full rounded-full flex justify-center">
             <div className="rounded-full font-bold relative flex items-center gap-3 bg-blue-00 p-2 select-none">
               <IoIosSend className="size-7 text-blue-400" />
-              <p className="text-blue-400 text-lg w-full">Current Location</p>
+              <p className="text-blue-400 text-sm md:text-xl w-full">Current Location</p>
             </div>
 
           </div>
@@ -55,9 +55,9 @@ export function CurrentWeatherLocation({ fetchDataWeather, weatherData, filtered
             <p className="text-2xl text-gray-400 font-bold md:text-4xl">{weatherData.location.country}</p>
           </div>
           <div className="text-6xl md:text-9xl font-bold text-white">{weatherData.current.temp_c}<sup>°</sup></div>
-          <div className="flex items-center gap-3 animate-pulse">
-            <img src={weatherData.current.condition.icon} alt="" />
-            <p className="text-2xl md:text-3xl font-bold text-blue-500 ">{weatherData.current.condition.text}</p>
+          <div className="flex items-center g ap-3 animate-pulse">
+            <img className = ""src={weatherData.current.condition.icon} alt="" />
+            <p className="text-lg md:text-3xl font-bold text-blue-500 ">{weatherData.current.condition.text}</p>
           </div>
 
 
@@ -67,13 +67,13 @@ export function CurrentWeatherLocation({ fetchDataWeather, weatherData, filtered
           <div className="flex">
             {weatherData.current.is_day == 1 ? (
               // Nếu là ban ngày (is_day == 1)
-              <IoMdSunny className="size-30 md:size-60 text-yellow-300 animate-pulse" />
+              <IoMdSunny className="size-25 md:size-60 text-yellow-300 animate-pulse" />
             ) : (
               // Nếu là ban đêm (is_day == 0)
-              <IoMdMoon className="size-45 text-gray-500 " />
+              <IoMdMoon className="size-25 md:size-60 text-gray-500 " />
             )}
           </div>
-          <div className="flex items-center gap-8 text-white/80 mt-7">
+          <div className="flex items-center gap-4 md:gap-8 text-white/80 mt-7">
             <div className="flex flex-col items-end">
               <span className="text-sm uppercase tracking-wider text-white/50">High</span>
               <span className="text-2xl font-bold">{maxtemp_c}°</span>

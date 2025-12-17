@@ -82,8 +82,6 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage fetchDataWeather={fetchDataWeather} weatherData={weatherData} filteredCountries={filteredCountries} handleSearchChange={handleSearchChange} />}></Route>
         <Route path="/current" element={<WeatherCurrent handleOpenSideBar={handleOpenSideBar} weatherData={weatherData} isOpenSideBar={isOpenSideBar} />} />
-        <Route path="/wishes" element={<Wishes />}></Route>
-        <Route path="/forecast" element={<ForeCast />}></Route>
         <Route path="/about" element={<AboutUs />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
       </Routes>

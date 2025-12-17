@@ -13,10 +13,8 @@ import { Link, NavLink } from "react-router";
 
 const menuItems = [
   { name: "Trang chủ", href: "/" },
-  { name: "Dự báo thời tiết", href: "/forecast" },
   { name: "Thời tiết hiện tại", href: "/current" },
   { name: "Về chúng tôi", href: "/about" },
-  { name: "Mong muốn", href: "/wishes" },
 ];
 export function SideBar({ fetchDataWeather, handleSearchChange, filteredCountries, searchQuery, isOpenSideBar, handleOpenSideBar }) {
 

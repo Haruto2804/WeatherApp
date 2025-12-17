@@ -3,10 +3,8 @@ import { CiMenuBurger } from "react-icons/ci";
 import { Link } from "react-router";
 const headerItems = [
   { name: "Trang chủ", href: "/" },
-  { name: "Dự báo thời tiết", href: "/forecast" },
   { name: "Thời tiết hiện tại", href: "/current" },
   { name: "Về chúng tôi", href: "/about" },
-  { name: "Mong muốn", href: "/wishes" },
 ];
 export function Header({ handleOpenSideBar }) {
   return (

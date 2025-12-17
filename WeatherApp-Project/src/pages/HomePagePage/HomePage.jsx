@@ -7,10 +7,10 @@ import { News } from "./News";
 export function HomePage({ weatherData, filteredCountries, handleSearchChange, fetchDataWeather }) {
 
   return (
-    <div className="flex flex-col gap-5 mx-auto bg-linear-to-r from-blue-900 to-black w-full lg:flex-row mt-10 p-5 ">
+    <div className="flex flex-col mx-auto bg-linear-to-r from-blue-900 to-black w-full  mt-10 p-5 xl:flex-row gap-5">
       <div className="basis-2/3 select-none">
         <CurrentWeatherLocation fetchDataWeather={fetchDataWeather} weatherData={weatherData} filteredCountries={filteredCountries} handleSearchChange={handleSearchChange} />
-        <div className="flex flex-col w-full lg:flex-row">
+        <div className="flex flex-col w-full ">
           <div className="flex flex-col gap-4 mt-5 basis-2/3 ">
             <div className="flex gap-3 items-center rounded-full bg-blue-600/60 p-4 mx-5 border border-blue-600 shadow-xl select-none hover:bg-blue-400/20 group transition-all cursor-pointer">
               <div className="flex items-center justify-center p-3 rounded-full group-hover:bg-black/30 bg-transparent transition-all">
@@ -44,13 +44,16 @@ export function HomePage({ weatherData, filteredCountries, handleSearchChange, f
             </div>
           </div>
 
-          <div className="mx-5 lg:max-w-2xl max-w-xl flex">
+          <div className="mx-5 lg:max-w-3xl max-w-xl flex">
             <ForeCastToday weatherData={weatherData} />
           </div>
 
         </div>
       </div>
-      <News />
+      <div className="w-full">
+        <News />
+      </div>
+
 
 
     </div>
