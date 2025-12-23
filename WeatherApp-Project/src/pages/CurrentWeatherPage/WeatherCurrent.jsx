@@ -3,11 +3,13 @@ import { FaWind, FaTemperatureHigh, FaCloud, FaEye, FaTint, FaSun, FaThermometer
 import { WiHumidity, WiBarometer, WiDaySunny, WiWindDeg } from "react-icons/wi";
 import { GridItem } from '../../components/Sidebar/GridItem.jsx';
 import { getWindDirection } from '../../utils/weather.js'
-export function WeatherCurrent({ handleOpenSideBar, weatherData, isOpenSideBar }) {
+import { useContext } from 'react';
+import { AppContext } from '../../Context/WeatherContext.js';
+export function WeatherCurrent({ handleOpenSideBar, isOpenSideBar }) {
+  const { weatherData } = useContext(AppContext)
   if (!weatherData || !weatherData.location || !weatherData.current) {
     return null;
   }
-
   return (
     <>
       <div key={weatherData.location.tz_id} className="w-screen h-screen relative ">
@@ -58,9 +60,6 @@ export function WeatherCurrent({ handleOpenSideBar, weatherData, isOpenSideBar }
                         "Se lạnh"
                 }>
               </GridItem>
-
-
-
               {/* Gió */}
               <GridItem
                 icon={<FaWind />}

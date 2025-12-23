@@ -10,14 +10,18 @@ import AUSFlag from '../../../public/image/flag_country/AUSFlag.png'
 import USFlag from '../../../public/image/flag_country/USFlag.png'
 import CanadaFlag from '../../../public/image/flag_country/CanadaFlag.png'
 import { Link, NavLink } from "react-router";
-
+import { useContext } from "react";
+import { AppContext } from "../../Context/WeatherContext.js";
+import { CountryContext } from "../../Context/CountryContext.js";
+import React from 'react'
 const menuItems = [
   { name: "Trang chủ", href: "/" },
   { name: "Thời tiết hiện tại", href: "/current" },
   { name: "Về chúng tôi", href: "/about" },
 ];
-export function SideBar({ fetchDataWeather, handleSearchChange, filteredCountries, searchQuery, isOpenSideBar, handleOpenSideBar }) {
-
+export const SideBar = React.memo(({isOpenSideBar, handleOpenSideBar }) => {
+  const { fetchDataWeather } = useContext(AppContext)
+  const {searchQuery,handleSearchChange,filteredCountries} = useContext(CountryContext)
   return (
     <>
 
@@ -123,4 +127,4 @@ export function SideBar({ fetchDataWeather, handleSearchChange, filteredCountrie
       </div>
     </>
   )
-}
+})
